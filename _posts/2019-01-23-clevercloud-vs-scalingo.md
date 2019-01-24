@@ -5,14 +5,14 @@ categories:
 - blog
 ---
 
-Ce billet s'inscrit dans une série d'articles visant à faire un retour d'experience sur les différents PaaS français dans une problématique d'hébergement d'un parc de 120+ Wordpress.
+Ce billet s'inscrit dans une série d'articles visant à faire un retour d'expérience sur les différents PaaS français dans une problématique d'hébergement d'un parc de 120+ Wordpress.
 
 Dans la série :
 
 {% include sommaire-paas.html %}
 
 
-Les tests ont été réalisés dans des conditions réelles. J'ai pris 2 Wordpress "représentatifs" déjà en production chez nous. Il ne s'agit pas de tests sur un wordpress sans plugins qui une page quasi vierge.
+Les tests ont été réalisés dans des conditions réelles. J'ai pris 2 Wordpress "représentatifs" déjà en production chez nous. Il ne s'agit pas de tests sur un wordpress sans plugins qui ne comporte qu'une page quasi vierge.
 
 **Les tests chez les différents PaaS ont été réalisés dans les même conditions**: Même version du site (donc mêmes versions de wordpress + plugins).
 
@@ -29,7 +29,7 @@ Avant de consigner les résultats obtenus, j'ai passé quelques temps a trouver 
 Une valeur trop haute, et ce sont les performances qui sont plombées à cause du manque de RAM (qui swap). Une valeur trop faible, et le scaler est alors bridé, et vos performances aussi. 
 
 
-⚠️ Note sur les pourcentage de réponse du serveur:  notez que sur les tests de type XX clients par seconde sur Y minutes, loader.io peut envoyer un peu moins de clients. Quand le résultat est à 95% on peut estimer que c'est justement cette différence de clients qui s'exprime. Par contre, quand on obtiens 20%, pas de doute, là, c'est bien le serveur qui n'a pas pu gérer toutes les requêtes, et n'as répondu qu'à 2 requête sur 10. ⚠️
+⚠️ Note sur les pourcentages de réponse du serveur: notez que sur les tests de type XX clients par seconde sur Y minutes, loader.io peut envoyer un peu moins de clients. Quand le résultat est à 95% on peut estimer que c'est justement cette différence de clients qui s'exprime. Par contre, quand on obtiens 20%, pas de doute, là, c'est bien le serveur qui n'a pas pu gérer toutes les requêtes, et n'a répondu qu'à 2 requête sur 10. ⚠️
 
 ⏲ Loader.io ne parse pas l'HTML, ni ne télécharge le JS, CSS ou les images. Le temps de réponse correspond donc uniquement a la génération de la page envoyée par le serveur. ⏲
 
@@ -80,7 +80,7 @@ Pour voir l'exhaustivité des tests conduits, je vous met a disposition ma feuil
   - Liste des dépendances et plugins : [composer.json](https://gist.github.com/tristanbes/c5223abc49c4feb2bdde6e495762c31b) 
 - Site 2 (non testé sur Clever Cloud, a cause des performances qu'il a obtenues lors des tests du Site 1)
   - Wordpress 4.9.2
-  - Liste des dépandances et plugins: [composer.json](https://gist.github.com/tristanbes/bd2684b4b90fc1a182540ce89290fdc8)
+  - Liste des dépendances et plugins: [composer.json](https://gist.github.com/tristanbes/bd2684b4b90fc1a182540ce89290fdc8)
   - Site "peu performant" sur la homepage
 - `pm.max_children` est à `10` pour les scaler S et `20` pour du M chez Scalingo / et `10  ` pour du XS et `20  `pour du S chez Clever Cloud (valeur rapporté dans la colonne "Remarque")
 
